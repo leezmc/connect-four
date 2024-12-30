@@ -16,7 +16,7 @@
 
 
 ### Screenshots
-![App Screenshot]([https://utfs.io/f/Snh77FAOgzd8ErRq4nlRX76mYVikJx0fe1rHDqldZtcT5wOU](https://utfs.io/f/Snh77FAOgzd83ChKkEJ1wH3ErozmntbFe6JxjCg2AQpZTUYV))
+![hippo](![hippo](https://media3.giphy.com/media/aUovxH8Vf9qDu/giphy.gif))
 
 ![App Screenshot](https://utfs.io/f/Snh77FAOgzd8ErRq4nlRX76mYVikJx0fe1rHDqldZtcT5wOU)
 
