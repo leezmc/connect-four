@@ -2,8 +2,13 @@ import Column from './column';
 import { useGameState } from '../hooks/useGameState';
 import { Circle } from 'lucide-react';
 
-export default function Board() {
-  const { board, currentPlayer, makeMove, winner, isDraw, resetGame } = useGameState();
+interface BoardProps {
+  aiMode: boolean;
+  aiDifficulty: string;
+}
+
+export default function Board({ aiMode, aiDifficulty }: BoardProps) {
+  const { board, currentPlayer, makeMove, winner, isDraw, resetGame } = useGameState(aiMode, aiDifficulty);
 
   return (
     <div className="flex flex-col items-center gap-6">

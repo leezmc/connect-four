@@ -68,3 +68,51 @@ export function checkWinner(
 
   return false;
 }
+
+function evaluateBoard(board: number[][], player: number): number {
+  let score = 0;
+  return score;
+}
+
+export function getAIMove(board: number[][], difficulty: string): number {
+  const availableColumns = board.map((column, index) => column.includes(0) ? index : -1).filter(index => index !== -1);
+
+  if (difficulty === 'Easy') {
+    return availableColumns[Math.floor(Math.random() * availableColumns.length)];
+  }
+
+  if (difficulty === 'Medium') {
+    // Block opponent's winning move or make a random move
+    for (const column of availableColumns) {
+      const tempBoard = board.map(col => [...col]);
+      const row = tempBoard[column].findIndex(cell => cell === 0);
+      tempBoard[column][row] = 2; 
+      if (checkWinner(tempBoard, column, row, 2)) return column;
+    }
+    return availableColumns[Math.floor(Math.random() * availableColumns.length)];
+  }
+
+  if (difficulty === 'Hard') {
+    // Prioritize winning moves, then block opponent, then random
+    for (const column of availableColumns) {
+      const tempBoard = board.map(col => [...col]);
+      const row = tempBoard[column].findIndex(cell => cell === 0);
+      tempBoard[column][row] = 1; 
+      if (checkWinner(tempBoard, column, row, 1)) return column;
+    }
+    return getAIMove(board, 'Medium');
+  }
+
+
+  if (difficulty === 'Impossible') {
+    // Same as hard, placeholder
+    for (const column of availableColumns) {
+      const tempBoard = board.map(col => [...col]);
+      const row = tempBoard[column].findIndex(cell => cell === 0);
+      tempBoard[column][row] = 1; 
+      if (checkWinner(tempBoard, column, row, 1)) return column;
+    }
+    return getAIMove(board, 'Medium');
+  }
+  return availableColumns[0];
+}
